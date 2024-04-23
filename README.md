@@ -1,8 +1,8 @@
 ffsync stands for Flash Floppy sync.
 
 ffsync synchronizes roms specified in a yaml configuration file with
-the roms in a target directory.  The target directory would typically
-be a USB key to be used in a [Gotek drive][1] flashed with
+the rom files of a target directory.  The target directory would
+typically be a USB key to be used in a [Gotek drive][1] flashed with
 [FlashFloppy][2].
 
 # Usage
