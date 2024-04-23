@@ -5,6 +5,29 @@ the roms in a target directory.  The target directory would typically
 be a USB key to be used in a [Gotek drive][1] flashed with
 [FlashFloppy][2].
 
+# Usage
+
+```
+$ ffsync --help
+Usage: ffsync.py [OPTIONS]
+
+  Copy roms to the target directory in accordance with the configuration file.
+
+Options:
+  --config-file TEXT    The YAML configuration file specifying the roms to
+                        synchronize.
+  --roms-dir TEXT       The path to the TOSEC directory where the roms are to
+                        be copied from. Defaults to ".".
+  --target-dir TEXT     The target directory; typically a mounted USB key to
+                        be inserted into a Gotek drive flashed with
+                        flashfloppy.  [required]
+  --prune / --no-prune  Remove DSKA* files not specified in the configuration
+                        file. Defaults to False.
+  --help                Show this message and exit.
+```
+
+# Example
+
 ```
 $ cat dmlem-compilation.yaml
 ---
@@ -44,5 +67,18 @@ total 3888
 -rw-r--r-- 1 florent florent      1 Jan  1  2019 IMAGE_A.CFG
 ```
 
+# Install
+
+```
+$ cp ffsync.py ~/bin/ffsync
+```
+
+# Notes
+
+Note that rom files on the USB key will be prefixed with `DSKAxxx_`,
+which means that a `FF.CFG` config file with `nav-mode = indexed` must
+be present on the USB key (see [FlashFlopy documentation][3]).
+
 [1]: https://www.gotekemulator.com/
 [2]: https://github.com/keirf/flashfloppy
+[3]: https://github.com/keirf/flashfloppy/wiki/FF.CFG-Configuration-File
